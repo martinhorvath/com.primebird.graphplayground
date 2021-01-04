@@ -8,10 +8,10 @@ MERGE (flight:Flight {id: row.id})
 
 MATCH (a:Airport),(f:Flight)
 WHERE a.iata_code = f.origin_airport
-CREATE (f)-[r:DEPARTING_TO]->(a)
+CREATE (f)-[r:DEPARTING_FROM]->(a)
 RETURN a,r,f
 
 MATCH (a:Airport),(f:Flight)
 WHERE a.iata_code = f.destination_airport
-CREATE (f)-[r:ARRIVING_FROM]->(a)
+CREATE (f)-[r:ARRIVING_AT]->(a)
 RETURN a,r,f
